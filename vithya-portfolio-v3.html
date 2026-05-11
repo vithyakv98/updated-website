@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vithya — Communications Strategist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #0F2D40;
+  --teal:   #0E7C86;
+  --slate:  #2E4A5A;
+  --mid:    #445E6E;
+  --muted:  #5A7585;
+  --dark:   #1A1A1A;
+  --bg:     #F7F8F6;
+  --white:  #FFFFFF;
+  --border: rgba(15,45,64,0.12);
+  --borderhv: rgba(15,45,64,0.22);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--dark);}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(247,248,246,0.96);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:0 2.5rem;height:52px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-name{font-family:'DM Serif Display',serif;font-size:18px;color:var(--navy);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:12.5px;color:var(--mid);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--teal);}
+.nav-cta{font-size:12.5px;font-weight:500;padding:8px 18px;background:var(--navy);color:var(--white);border-radius:5px;text-decoration:none;transition:background 0.2s;}
+.nav-cta:hover{background:var(--teal);}
+
+/* HERO */
+.hero{padding:118px 2.5rem 72px;max-width:900px;margin:0 auto;}
+.hero-eyebrow{
+  font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--teal);margin-bottom:22px;
+  opacity:0;animation:up 0.55s 0.1s forwards;
+}
+.hero-name{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(50px,7vw,82px);
+  color:var(--navy);line-height:1.0;letter-spacing:-2px;
+  margin-bottom:20px;
+  opacity:0;animation:up 0.55s 0.2s forwards;
+}
+.hero-name em{font-style:italic;color:var(--teal);}
+.hero-tagline{
+  font-size:clamp(16px,2vw,19px);color:var(--slate);
+  font-weight:300;line-height:1.65;max-width:600px;margin-bottom:28px;
+  opacity:0;animation:up 0.55s 0.3s forwards;
+}
+.hero-descriptor{
+  font-size:14px;color:var(--mid);line-height:1.8;max-width:580px;margin-bottom:36px;
+  opacity:0;animation:up 0.55s 0.35s forwards;
+}
+.hero-stats{
+  display:flex;gap:36px;flex-wrap:wrap;margin-bottom:36px;
+  opacity:0;animation:up 0.55s 0.38s forwards;
+}
+.hstat-num{font-family:'DM Serif Display',serif;font-size:28px;color:var(--navy);line-height:1;margin-bottom:3px;}
+.hstat-num span{color:var(--teal);}
+.hstat-lbl{font-size:11px;color:var(--muted);line-height:1.4;max-width:110px;}
+.hero-cta{
+  display:flex;gap:10px;flex-wrap:wrap;
+  opacity:0;animation:up 0.55s 0.4s forwards;
+}
+.btn-primary{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:12px 24px;background:var(--navy);color:var(--white);border:none;border-radius:5px;cursor:pointer;text-decoration:none;transition:background 0.2s;display:inline-block;}
+.btn-primary:hover{background:var(--teal);}
+.btn-outline{font-family:'DM Sans',sans-serif;font-size:13px;padding:12px 24px;background:transparent;color:var(--navy);border:1px solid rgba(15,45,64,0.25);border-radius:5px;cursor:pointer;text-decoration:none;transition:all 0.2s;display:inline-block;}
+.btn-outline:hover{border-color:var(--teal);color:var(--teal);}
+
+/* MARQUEE */
+.marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:13px 0;background:rgba(14,124,134,0.04);}
+.marquee-track{display:flex;gap:44px;width:max-content;animation:scroll 28s linear infinite;}
+.marquee-item{font-size:11.5px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);white-space:nowrap;display:flex;align-items:center;gap:16px;}
+.marquee-item::after{content:'·';color:var(--muted);}
+@keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* SECTION */
+.section{max-width:900px;margin:0 auto;padding:70px 2.5rem;border-bottom:1px solid var(--border);}
+.section:last-of-type{border-bottom:none;}
+.eyebrow{font-size:10.5px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:36px;}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:200px 1fr;gap:56px;align-items:start;}
+.about-sidebar-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;}
+.about-sectors{display:flex;flex-direction:column;gap:7px;margin-bottom:28px;}
+.sector-tag{font-size:12px;padding:5px 12px;border:1px solid var(--border);border-radius:3px;color:var(--slate);width:fit-content;}
+.about-body{font-size:15px;line-height:1.85;color:var(--slate);font-weight:300;}
+.about-body p+p{margin-top:18px;}
+.about-pull{font-family:'DM Serif Display',serif;font-size:21px;font-style:italic;color:var(--navy);line-height:1.5;margin:28px 0;padding-left:18px;border-left:2px solid var(--teal);}
+
+/* CASE STUDY */
+.case-header{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:48px;}
+.case-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px;}
+.case-org{font-family:'DM Serif Display',serif;font-size:28px;color:var(--navy);letter-spacing:-0.5px;margin-bottom:10px;}
+.case-tagline{font-size:14.5px;color:var(--slate);line-height:1.65;font-weight:300;}
+.case-meta{display:flex;flex-direction:column;gap:14px;}
+.case-meta-item{padding:14px 16px;background:rgba(14,124,134,0.05);border-left:2px solid var(--teal);}
+.case-meta-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:4px;}
+.case-meta-val{font-size:13px;color:var(--dark);line-height:1.5;}
+.case-story{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-bottom:40px;}
+.story-num{font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:0.05em;}
+.story-title{font-size:14px;font-weight:500;color:var(--navy);margin-bottom:8px;}
+.story-body{font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;}
+.case-results{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.result-cell{background:var(--bg);padding:20px 16px;text-align:center;}
+.result-num{font-family:'DM Serif Display',serif;font-size:26px;color:var(--navy);letter-spacing:-0.5px;margin-bottom:4px;}
+.result-lbl{font-size:11px;color:var(--muted);line-height:1.4;}
+
+/* TABS */
+.case-tabs{display:flex;gap:0;border:1px solid var(--border);width:fit-content;margin-top:40px;}
+.ctab{font-size:12px;padding:8px 20px;cursor:pointer;background:transparent;color:var(--mid);border:none;border-right:1px solid var(--border);transition:all 0.15s;font-family:'DM Sans',sans-serif;}
+.ctab:last-child{border-right:none;}
+.ctab.active{background:var(--navy);color:var(--white);}
+.case-panel{display:none;border:1px solid var(--border);border-top:none;padding:24px;}
+.case-panel.show{display:block;}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.svc{background:var(--bg);padding:30px 26px;transition:background 0.2s;}
+.svc:hover{background:var(--white);}
+.svc-icon{font-size:20px;margin-bottom:18px;display:block;}
+.svc-name{font-family:'DM Serif Display',serif;font-size:20px;color:var(--navy);margin-bottom:10px;}
+.svc-desc{font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;margin-bottom:18px;}
+.svc-includes{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.svc-includes li{font-size:12px;color:var(--dark);padding-left:14px;position:relative;line-height:1.5;}
+.svc-includes li::before{content:'—';position:absolute;left:0;color:var(--teal);}
+.svc-who{font-size:11px;color:var(--muted);margin-top:14px;font-style:italic;}
+
+/* EXPERIENCE */
+.job{border-top:1px solid var(--border);padding:22px 0;cursor:pointer;}
+.job:last-child{border-bottom:1px solid var(--border);}
+.job-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+.job-title{font-family:'DM Serif Display',serif;font-size:18px;color:var(--navy);margin-bottom:4px;}
+.job-org{font-size:13px;font-weight:500;color:var(--teal);margin-bottom:3px;}
+.job-period{font-size:12px;color:var(--muted);}
+.job-toggle{font-size:18px;color:var(--muted);transition:transform 0.2s,color 0.2s;flex-shrink:0;margin-top:4px;}
+.job.open .job-toggle{transform:rotate(45deg);color:var(--teal);}
+.job-body{display:none;margin-top:16px;padding-top:16px;border-top:1px solid var(--border);}
+.job.open .job-body{display:block;}
+.job-body ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.job-body li{font-size:13.5px;color:var(--mid);line-height:1.65;padding-left:18px;position:relative;font-weight:300;}
+.job-body li::before{content:'—';position:absolute;left:0;color:var(--teal);}
+.job-highlight{font-size:13px;color:var(--dark);background:rgba(14,124,134,0.05);padding:12px 16px;border-left:2px solid var(--teal);margin-bottom:14px;line-height:1.6;font-style:italic;}
+
+/* WORK GRID */
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.work-item{background:var(--bg);padding:26px;transition:background 0.2s;}
+.work-item:hover{background:var(--white);}
+.work-geo{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:7px;}
+.work-name{font-size:15px;font-weight:500;color:var(--navy);margin-bottom:4px;}
+.work-what{font-size:12px;color:var(--mid);margin-bottom:8px;line-height:1.5;}
+.work-type{font-size:11px;padding:3px 10px;border:1px solid var(--border);color:var(--muted);border-radius:3px;display:inline-block;}
+
+/* CONTACT */
+.contact-wrap{background:var(--navy);padding:80px 2.5rem;text-align:center;}
+.contact-wrap .eyebrow{color:rgba(14,124,134,0.8);}
+.contact-headline{font-family:'DM Serif Display',serif;font-size:clamp(30px,5vw,50px);color:var(--white);letter-spacing:-1px;line-height:1.15;margin-bottom:14px;}
+.contact-headline em{font-style:italic;color:var(--teal);}
+.contact-sub{font-size:15px;color:rgba(255,255,255,0.55);font-weight:300;margin-bottom:36px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.7;}
+.contact-options{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+.contact-pill{font-size:12px;padding:7px 18px;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);border-radius:3px;}
+.contact-email{font-size:16px;color:var(--white);font-weight:500;text-decoration:none;border-bottom:1px solid var(--teal);padding-bottom:2px;}
+.contact-note{font-size:11px;color:rgba(255,255,255,0.3);margin-top:20px;letter-spacing:0.05em;}
+
+footer{background:var(--navy);text-align:center;padding:18px;border-top:1px solid rgba(255,255,255,0.07);font-size:11px;color:rgba(255,255,255,0.25);}
+footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+
+@keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:680px){
+  .hero{padding:90px 1.25rem 56px;}
+  .about-grid,.case-header,.case-story{grid-template-columns:1fr;}
+  .services-grid,.work-grid{grid-template-columns:1fr;}
+  .case-results{grid-template-columns:1fr 1fr;}
+  .hero-stats{gap:24px;}
+  .section{padding:52px 1.25rem;}
+  .nav-links{display:none;}
+  .contact-wrap{padding:56px 1.25rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Vithya</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#case">Case Study</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Work</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Work with me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Communications Strategist · 8 Years · Global South → Worldwide</div>
+  <h1 class="hero-name">Vithya<em>.</em></h1>
+  <p class="hero-tagline">Strategy. Design. Story. Analytics.<br>Whatever it takes to make people <em style="font-style:italic;color:var(--teal);">actually feel it.</em></p>
+  <p class="hero-descriptor">I believe unheard voices deserve more than the obvious approach. From a full communications strategy to the Canva file, the press pitch, and the analytics — I work across the whole chain, finding the unexpected angle that actually lands. Rooted in the Global South, working with organisations and brands across the US, UK, India, and beyond. Any timezone.</p>
+
+  <div class="hero-stats">
+    <div>
+      <div class="hstat-num">20<span>+</span></div>
+      <div class="hstat-lbl">organisations under one shared narrative</div>
+    </div>
+    <div>
+      <div class="hstat-num">4</div>
+      <div class="hstat-lbl">continents, one strategic lens</div>
+    </div>
+    <div>
+      <div class="hstat-num">3<span>×</span></div>
+      <div class="hstat-lbl">average follower growth across platforms</div>
+    </div>
+    <div>
+      <div class="hstat-num">8<span>+</span></div>
+      <div class="hstat-lbl">years. Non-profits, brands, governments.</div>
+    </div>
+  </div>
+
+  <div class="hero-cta">
+    <a href="mailto:vithyakv98@gmail.com" class="btn-primary">Work with me →</a>
+    <a href="https://vithyaprofile.my.canva.site/vithya-portfolio" target="_blank" class="btn-outline">See the work</a>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Communications Strategy</span>
+    <span class="marquee-item">Brand Identity</span>
+    <span class="marquee-item">Campaign Design</span>
+    <span class="marquee-item">Donor Communications</span>
+    <span class="marquee-item">Crisis Comms</span>
+    <span class="marquee-item">Coalition Messaging</span>
+    <span class="marquee-item">Graphic Design</span>
+    <span class="marquee-item">Analytics & Reporting</span>
+    <span class="marquee-item">Annual Reports</span>
+    <span class="marquee-item">Advocacy Campaigns</span>
+    <span class="marquee-item">Workshops & Training</span>
+    <span class="marquee-item">Communications Strategy</span>
+    <span class="marquee-item">Brand Identity</span>
+    <span class="marquee-item">Campaign Design</span>
+    <span class="marquee-item">Donor Communications</span>
+    <span class="marquee-item">Crisis Comms</span>
+    <span class="marquee-item">Coalition Messaging</span>
+    <span class="marquee-item">Graphic Design</span>
+    <span class="marquee-item">Analytics & Reporting</span>
+    <span class="marquee-item">Annual Reports</span>
+    <span class="marquee-item">Advocacy Campaigns</span>
+    <span class="marquee-item">Workshops & Training</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section fade-in" id="about">
+  <div class="eyebrow">About</div>
+  <div class="about-grid">
+    <div class="about-sidebar">
+      <div class="about-sidebar-label">I work with</div>
+      <div class="about-sectors">
+        <span class="sector-tag">Non-profits & NGOs</span>
+        <span class="sector-tag">Social impact orgs</span>
+        <span class="sector-tag">Education & ECD</span>
+        <span class="sector-tag">LGBTQ+ advocacy</span>
+        <span class="sector-tag">Startups & brands</span>
+        <span class="sector-tag">Corporates & agencies</span>
+      </div>
+      <div class="about-sidebar-label">Based in</div>
+      <p style="font-size:13px;color:var(--mid);line-height:1.6;">Global South — India<br>Available US · UK · Any timezone</p>
+      <br>
+      <div class="about-sidebar-label">On LinkedIn</div>
+      <a href="https://www.linkedin.com/in/vithya-k" target="_blank" style="font-size:13px;color:var(--teal);text-decoration:none;">@vithya-k ↗</a>
+    </div>
+    <div class="about-content">
+      <div class="about-body">
+        <p>I'm a communications all-rounder with 8 years of working across four continents. I don't fit neatly into one lane — I never have. I've built complete communications functions from scratch, authored two-year coalition strategies, designed annual reports, written donor narratives, run BBC-covered advocacy campaigns, created social media content calendars, and pulled the analytics to prove what worked. All of it.</p>
+        <div class="about-pull">"The most powerful communications don't find the right approach — they find the unexpected one. The one that makes an unheard voice impossible to ignore."</div>
+        <p>Rooted in the Global South, I've worked with governments, grassroots NGOs, international development organisations, LGBTQ+ advocacy groups, education nonprofits, and for-profit brands across India, the US, the UK, Australia, Africa, and the Middle East. The context changes. The commitment to doing it properly doesn't.</p>
+        <p>I'm as comfortable in a strategy session as I am in a Canva file, a press pitch, or a data dashboard. I work with organisations that have something real to say and want someone who'll take the whole thing seriously — from the big idea to the last pixel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section fade-in" id="case">
+  <div class="eyebrow">Case Study — The work in depth</div>
+
+  <div class="case-header">
+    <div>
+      <div class="case-label">Featured project</div>
+      <div class="case-org">Dost Education</div>
+      <p class="case-tagline">Building an entire communications function from zero — brand identity, campaigns, annual report, and UNICEF + LEGO-partnered advocacy — over 18 months, reported directly to the CEO.</p>
+    </div>
+    <div class="case-meta">
+      <div class="case-meta-item">
+        <div class="case-meta-label">Sector</div>
+        <div class="case-meta-val">Early Childhood Development · Non-profit · India / US</div>
+      </div>
+      <div class="case-meta-item">
+        <div class="case-meta-label">Scope</div>
+        <div class="case-meta-val">Strategy · Brand identity · Campaigns · Annual Report · Analytics · Advocacy</div>
+      </div>
+      <div class="case-meta-item">
+        <div class="case-meta-label">Timeline</div>
+        <div class="case-meta-val">2022 – 2025 · Reported to CEO</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-story">
+    <div class="story-block">
+      <div class="story-num">01 — The situation</div>
+      <div class="story-title">No comms infrastructure. At all.</div>
+      <div class="story-body">Dost had a clear mission and real impact — but no brand guidelines, no messaging framework, no digital presence, no strategy. Everything was inconsistent. They needed someone to build it from zero, not inherit something broken.</div>
+    </div>
+    <div class="story-block">
+      <div class="story-num">02 — What I built</div>
+      <div class="story-title">The entire infrastructure.</div>
+      <div class="story-body">Brand guidelines and visual identity. Messaging frameworks for parents, funders, and government partners. The first Annual Report, end-to-end. All social media content and strategy. The 'Talk, Care & Play' advocacy campaign — website, photo exhibition, blog series, press outreach. Partnership comms for UNICEF and LEGO Foundation.</div>
+    </div>
+    <div class="story-block">
+      <div class="story-num">03 — What changed</div>
+      <div class="story-title">A brand that earned its place.</div>
+      <div class="story-body">Consistent platform growth across all channels — month on month. An annual report that secured funder confidence. International visibility through UNICEF and LEGO. A comms function that ran independently after I moved on. The work kept working.</div>
+    </div>
+  </div>
+
+  <div class="case-results">
+    <div class="result-cell">
+      <div class="result-num">1st</div>
+      <div class="result-lbl">Annual Report ever produced for the org</div>
+    </div>
+    <div class="result-cell">
+      <div class="result-num">2</div>
+      <div class="result-lbl">Global partnerships — UNICEF + LEGO Foundation</div>
+    </div>
+    <div class="result-cell">
+      <div class="result-num">3×</div>
+      <div class="result-lbl">Follower growth across platforms in 12 months</div>
+    </div>
+    <div class="result-cell">
+      <div class="result-num">0→</div>
+      <div class="result-lbl">Full comms function built from scratch</div>
+    </div>
+  </div>
+
+  <div class="case-tabs">
+    <button class="ctab active" onclick="showPanel(this,'ecd')">India ECD Collective</button>
+    <button class="ctab" onclick="showPanel(this,'dream')">Dream a Dream</button>
+    <button class="ctab" onclick="showPanel(this,'chiefs')">Chiefs for Change</button>
+  </div>
+  <div class="case-panel show" id="panel-ecd">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+      <div><div class="case-label" style="margin-bottom:7px;">The challenge</div><p style="font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;">20+ organisations in early childhood development — each with their own voice, framing, and priorities. No shared narrative. No coalition identity. Lots of noise, no signal.</p></div>
+      <div><div class="case-label" style="margin-bottom:7px;">What I did</div><p style="font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;">Authored a two-year communications strategy that gave the coalition a shared narrative, consistent messaging, and a framework every member could use. One voice. Many advocates.</p></div>
+    </div>
+  </div>
+  <div class="case-panel" id="panel-dream">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+      <div><div class="case-label" style="margin-bottom:7px;">The challenge</div><p style="font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;">The Delhi Happiness Curriculum was reaching thousands of students — but the story wasn't reaching government partners, funders, or media. Visibility was the gap.</p></div>
+      <div><div class="case-label" style="margin-bottom:7px;">What I did</div><p style="font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;">500+ pieces of content. Government advocacy with the Delhi Department of Education and Chief Minister's Media Team. BBC coverage that took the project global. Genpact partnership for teacher training at scale.</p></div>
+    </div>
+  </div>
+  <div class="case-panel" id="panel-chiefs">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+      <div><div class="case-label" style="margin-bottom:7px;">The context</div><p style="font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;">Chiefs for Change — a US education policy organisation — needed an Annual Report template designed for a sophisticated policy audience. The engagement was short-term.</p></div>
+      <div><div class="case-label" style="margin-bottom:7px;">What I delivered</div><p style="font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;">A designed Annual Report template and a completed section — built to be clean, data-forward, and easy for the internal team to continue and expand independently.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section fade-in" id="services">
+  <div class="eyebrow">Services</div>
+  <div class="services-grid">
+    <div class="svc">
+      <span class="svc-icon">◎</span>
+      <div class="svc-name">Communications Strategy</div>
+      <p class="svc-desc">For organisations that need a clear, actionable strategy — not a document that sits in a drawer. I build messaging frameworks, narrative architecture, and multi-channel plans people actually use.</p>
+      <ul class="svc-includes">
+        <li>Audience mapping & stakeholder analysis</li>
+        <li>Message architecture & narrative design</li>
+        <li>Multi-channel strategy & roadmap</li>
+        <li>Coalition & campaign messaging</li>
+        <li>Brand voice & tone guidelines</li>
+      </ul>
+      <div class="svc-who">Non-profits, NGOs, coalitions, mission-driven brands</div>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">◈</span>
+      <div class="svc-name">Content, Campaigns & Design</div>
+      <p class="svc-desc">The full pipeline — concept to publish. Social media, newsletters, reports, campaigns, press materials, and the visual design that ties it all together. I make it and make it work.</p>
+      <ul class="svc-includes">
+        <li>Campaign concept & creative direction</li>
+        <li>Social media strategy & content creation</li>
+        <li>Newsletters & donor communications</li>
+        <li>Annual reports — writing & design</li>
+        <li>Graphic design & visual assets</li>
+        <li>Analytics & performance reporting</li>
+      </ul>
+      <div class="svc-who">Any org that needs execution, not just the plan</div>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">◇</span>
+      <div class="svc-name">Brand & Consulting</div>
+      <p class="svc-desc">For brands and organisations that need their visual and verbal identity to actually work together — and for leaders who want a sharp, experienced eye on what they're already doing.</p>
+      <ul class="svc-includes">
+        <li>Brand identity & visual guidelines</li>
+        <li>Comms audits & strategic reviews</li>
+        <li>Pitch decks & stakeholder materials</li>
+        <li>Packaging & product communications</li>
+        <li>Workshops & training for in-house teams</li>
+      </ul>
+      <div class="svc-who">For-profits, startups, agencies, social enterprises</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section fade-in" id="experience">
+  <div class="eyebrow">Experience</div>
+
+  <div class="job open" onclick="toggleJob(this)">
+    <div class="job-row">
+      <div class="job-left">
+        <div class="job-title">Communications Manager</div>
+        <div class="job-org">Soulforce</div>
+        <div class="job-period">2026 – Present · US Remote · LGBTQ+ Advocacy</div>
+      </div>
+      <div class="job-toggle">+</div>
+    </div>
+    <div class="job-body">
+      <div class="job-highlight">End-to-end communications for a national LGBTQ+ advocacy organisation — strategy, design, content, analytics, and funder communications. All of it.</div>
+      <ul>
+        <li>Manage full social media calendar across Instagram, Facebook, LinkedIn, email, and WhatsApp — creating all content, visuals, and engagement personally.</li>
+        <li>Design and distribute monthly newsletter end-to-end: layout, copy, visuals, distribution via Constant Contact.</li>
+        <li>Produce monthly analytics reports to evaluate performance and inform strategy.</li>
+        <li>Develop funder-facing impact narratives and integrated campaign plans.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job" onclick="toggleJob(this)">
+    <div class="job-row">
+      <div class="job-left">
+        <div class="job-title">Communications & Content Strategist</div>
+        <div class="job-org">Vibha</div>
+        <div class="job-period">2025 – Ongoing · US Remote</div>
+      </div>
+      <div class="job-toggle">+</div>
+    </div>
+    <div class="job-body">
+      <ul>
+        <li>Multi-channel strategy aligned to fundraising and advocacy priorities.</li>
+        <li>Content creation and management across social media, email, and donor communications.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job" onclick="toggleJob(this)">
+    <div class="job-row">
+      <div class="job-left">
+        <div class="job-title">Communications Strategist</div>
+        <div class="job-org">India ECD Collective</div>
+        <div class="job-period">2024 – 2025 · India · Coalition of 20+ organisations</div>
+      </div>
+      <div class="job-toggle">+</div>
+    </div>
+    <div class="job-body">
+      <div class="job-highlight">Authored a two-year strategy that gave 20+ organisations one shared narrative — one of the hardest things to do in coalition communications.</div>
+      <ul>
+        <li>Built the messaging architecture, tone guidelines, and campaign framework used across all member organisations.</li>
+        <li>Ongoing support for coalition-wide campaigns and social media visibility.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job" onclick="toggleJob(this)">
+    <div class="job-row">
+      <div class="job-left">
+        <div class="job-title">Manager, Marketing & Communications</div>
+        <div class="job-org">Dost Education</div>
+        <div class="job-period">2022 – 2025 · India / US · Reported to CEO</div>
+      </div>
+      <div class="job-toggle">+</div>
+    </div>
+    <div class="job-body">
+      <div class="job-highlight">Built the entire comms function from zero in 18 months — brand, strategy, content, design, analytics, UNICEF and LEGO-partnered campaigns.</div>
+      <ul>
+        <li>Designed and executed the 'Talk, Care & Play' advocacy campaign across website, photo exhibition, blog series, and press.</li>
+        <li>Consistent platform growth across LinkedIn, Instagram, Twitter, and website — month on month from launch.</li>
+        <li>Managed PR firms, web developers, and event agencies.</li>
+        <li>International campaigns with UNICEF and the LEGO Foundation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job" onclick="toggleJob(this)">
+    <div class="job-row">
+      <div class="job-left">
+        <div class="job-title">Strategic Partnerships & Communications Lead</div>
+        <div class="job-org">Dream a Dream — Happiness Curriculum</div>
+        <div class="job-period">2020 – 2022 · India · BBC coverage</div>
+      </div>
+      <div class="job-toggle">+</div>
+    </div>
+    <div class="job-body">
+      <div class="job-highlight">Led communications for a government-partnered curriculum reaching thousands of Delhi students — BBC coverage, Genpact partnership, government advocacy.</div>
+      <ul>
+        <li>500+ pieces of content and campaign assets with measurable audience growth.</li>
+        <li>Government advocacy with Delhi's Department of Education and Chief Minister's Media Team.</li>
+        <li>Collaborated with BBC and international media for global amplification.</li>
+        <li>Led Genpact partnership for LMS rollout across Delhi government schools.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section fade-in" id="work">
+  <div class="eyebrow">Selected work — across sectors and continents</div>
+  <div class="work-grid">
+    <div class="work-item">
+      <div class="work-geo">United States</div>
+      <div class="work-name">Chiefs for Change</div>
+      <div class="work-what">Annual Report template & section design</div>
+      <span class="work-type">Non-profit · Design</span>
+    </div>
+    <div class="work-item">
+      <div class="work-geo">Australia</div>
+      <div class="work-name">Journey 4 Good</div>
+      <div class="work-what">Brand identity, pitch decks & communications collateral</div>
+      <span class="work-type">For-profit · Brand + Strategy</span>
+    </div>
+    <div class="work-item">
+      <div class="work-geo">Africa</div>
+      <div class="work-name">MMD Groups</div>
+      <div class="work-what">Brand & communications assets</div>
+      <span class="work-type">For-profit · Comms + Design</span>
+    </div>
+    <div class="work-item">
+      <div class="work-geo">India</div>
+      <div class="work-name">Being Cards</div>
+      <div class="work-what">Game card design — mental health & emotional literacy</div>
+      <span class="work-type">Social enterprise · Design</span>
+    </div>
+    <div class="work-item">
+      <div class="work-geo">India</div>
+      <div class="work-name">Spice O Grain</div>
+      <div class="work-what">Special edition branding & packaging</div>
+      <span class="work-type">For-profit · Brand + Design</span>
+    </div>
+    <div class="work-item">
+      <div class="work-geo">Dubai</div>
+      <div class="work-name">GE Festive</div>
+      <div class="work-what">Presentation & communications design</div>
+      <span class="work-type">For-profit · Design</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-wrap" id="contact">
+  <div class="eyebrow">Work with me</div>
+  <h2 class="contact-headline">Good communications<br>takes someone who does<br><em>all of it.</em></h2>
+  <p class="contact-sub">Strategy to design to analytics to press. If you need the full picture — or just one piece of it — let's talk.</p>
+  <div class="contact-options">
+    <span class="contact-pill">Strategy retainer</span>
+    <span class="contact-pill">Project-based</span>
+    <span class="contact-pill">Workshops & training</span>
+    <span class="contact-pill">Design consulting</span>
+  </div>
+  <div>
+    <a href="mailto:vithyakv98@gmail.com" class="contact-email">vithyakv98@gmail.com</a>
+  </div>
+  <p class="contact-note">Global South — India · Available US · UK · Any timezone</p>
+</section>
+
+<footer>
+  <p>Vithya · Communications Strategist · <a href="https://vithyakv98.github.io/vithya/">Portfolio ↗</a> · <a href="https://www.linkedin.com/in/vithya-k" target="_blank">LinkedIn ↗</a></p>
+</footer>
+
+<script>
+function toggleJob(el){
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.job').forEach(j=>j.classList.remove('open'));
+  if(!isOpen)el.classList.add('open');
+}
+function showPanel(btn,id){
+  document.querySelectorAll('.case-panel').forEach(p=>p.classList.remove('show'));
+  document.querySelectorAll('.ctab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('show');
+  btn.classList.add('active');
+}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.08});
+document.querySelectorAll('.fade-in').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
